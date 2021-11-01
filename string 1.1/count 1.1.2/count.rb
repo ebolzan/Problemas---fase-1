@@ -6,16 +6,20 @@ def countChars(sentence)
     special = 0
     numbers = 0
 
+
     sentence.each_char { |c| 
-       upper =upper+1 if c.upcase  
-       lower =lower+1 if c.downcase
-       numbers =numbers+1 if c.to_i.is_a? Integer #fail here
+       upper =upper + c.count("A-Z")  
+       lower =lower+ c.count("a-z")
+       numbers = numbers + c.count("0-9")
+       special = special + c.count("[^0-9a-zA-Z]")
      
     }
 
     puts lower
+    puts upper
     puts numbers
+    puts special
 end
 
 
-countChars("deu 1 Zica")
+countChars("deu*12DEU%%%")
