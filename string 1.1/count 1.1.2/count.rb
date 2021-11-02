@@ -1,4 +1,11 @@
 
+#check if string is integer value
+def isNumeric(obj)
+    obj.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true
+end
+
+#main function to check all values the string
+#void return
 def countChars(sentence)
 
     lower   = 0
@@ -6,16 +13,24 @@ def countChars(sentence)
     special = 0
     numbers = 0
 
-    sentence.each_char { |c| 
-       upper =upper+1 if c.upcase  
-       lower =lower+1 if c.downcase
-       numbers =numbers+1 if c.to_i.is_a? Integer #fail here
-     
-    }
+    for i in 0..(sentence.length() - 1)        
 
-    puts lower
-    puts numbers
+        if sentence[i].downcase! then
+            upper += 1
+        elsif sentence[i].upcase! then
+            lower += 1
+        elsif isNumeric(sentence[i]) then
+            numbers += 1
+        else 
+            special =+ 1
+        end     
+    end
+
+    puts "The Lower case letters: #{lower}"
+    puts "The Upper case letters: #{upper}"
+    puts "The numbers: #{numbers}"
+    puts "The special characters: #{special}"
 end
 
-
-countChars("deu 1 Zica")
+string = "#GeeKs01fOr@gEEks07"
+countChars(string)
