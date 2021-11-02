@@ -32,5 +32,4 @@ def countChars(sentence)
     puts "The special characters: #{special}"
 end
 
-string = "#GeeKs01fOr@gEEks07"
-countChars(string)
+countChars("deu*12DEU%%%")
