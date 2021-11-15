@@ -33,10 +33,6 @@ def find_future(array, query)
         for arr_date in array_date
             day = (arr_date.mjd - q_date.mjd).abs
 
-            #puts "----------------"
-            #puts day, " < ",days_closest_temp
-            #puts "----------------"
-
             puts day, " < ", days_closest_temp
             a = gets
 
